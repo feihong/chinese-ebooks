@@ -13,16 +13,17 @@ http://www.kanunu8.com/files/chinese/201102/1781.html""".splitlines()
 
 
 def make(index_url, number):
-    output_file = f'books/mingchao na xie shi {number}.txt')
+    output_file = Path(f'books/mingchao na xie shi {number}.txt')
     print(output_file)
     # Only make the ebook if it doesn't already exist.
-    if not output_file.exists():
-        make_ebook(
-            index_url=index_url,
-            title=f'明朝那些事儿{number}',
-            author='当年明月',
-            output_file=output_file,
-        )
+    # if not output_file.exists():
+    make_ebook(
+        index_url=index_url,
+        title=f'明朝那些事儿{number}',
+        author='当年明月',
+        output_file=output_file,
+        formats=['.mobi'],
+    )
 
 
 if __name__ == '__main__':
