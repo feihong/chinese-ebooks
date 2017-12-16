@@ -13,7 +13,7 @@ http://www.kanunu8.com/files/chinese/201102/1781.html""".splitlines()
 
 
 def make(index_url, number):
-    output_file = Path('books') / Path(f'mingchao na xie shi {number}.txt')
+    output_file = f'books/mingchao na xie shi {number}.txt')
     print(output_file)
     # Only make the ebook if it doesn't already exist.
     if not output_file.exists():
