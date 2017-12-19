@@ -2,3 +2,5 @@
 books/*.mobi
 books/*.epub
 books/*.txt
+books/*.md
+*.html

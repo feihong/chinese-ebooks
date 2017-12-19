@@ -8,6 +8,9 @@ name = "pypi"
 [packages]
 
 shu = {git = "https://github.com/feihong/shu.git"}
+"markdown2" = "*"
+invoke = "*"
+
 
 
 [dev-packages]
