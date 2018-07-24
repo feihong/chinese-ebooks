@@ -1,18 +1,18 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ca2ed586441fedd6c3e2b7a52c81c8c9131fa7e0301a03fcdf9a493d4eeeaa37"
+            "sha256": "d1a3c38db28a31ee5ec758a45359f34e17be495955772047c810ca5c3d8e30ab"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
-            "implementation_version": "3.6.1",
+            "implementation_version": "3.6.4",
             "os_name": "posix",
             "platform_machine": "x86_64",
             "platform_python_implementation": "CPython",
-            "platform_release": "17.3.0",
+            "platform_release": "17.7.0",
             "platform_system": "Darwin",
-            "platform_version": "Darwin Kernel Version 17.3.0: Thu Nov  9 18:09:22 PST 2017; root:xnu-4570.31.3~1/RELEASE_X86_64",
-            "python_full_version": "3.6.1",
+            "platform_version": "Darwin Kernel Version 17.7.0: Thu Jun 21 22:53:14 PDT 2018; root:xnu-4570.71.2~1/RELEASE_X86_64",
+            "python_full_version": "3.6.4",
             "python_version": "3.6",
             "sys_platform": "darwin"
         },
@@ -29,11 +29,11 @@
     "default": {
         "invoke": {
             "hashes": [
-                "sha256:a90acf9fd9d863dba4545b369c4ca547de4ca76228ca52c78cf224e7eecce0e9",
-                "sha256:66434bf48dcffea232e8ada3a7e252cc10928871c46f39ece123c6a5753c0d0c",
-                "sha256:6c572a09849e1452ff65c674d4531a940366278194af86315e458f8457192274"
+                "sha256:3e8e2c2e69493227e210a1d19ccc7c44189240385dda4c9b8eb5d98fa0f68a3e",
+                "sha256:1db6cf918e5df10efe4d61101b19763abe1510b6b2fe8c553daba25476de8044",
+                "sha256:265eead8c89805a2ac5083200842db6da7636ac63fb4fe0d1121b930770f3e2a"
             ],
-            "version": "==0.22.0"
+            "version": "==1.1.0"
         },
         "markdown2": {
             "hashes": [
@@ -42,7 +42,8 @@
             "version": "==2.3.5"
         },
         "shu": {
-            "git": "https://github.com/feihong/shu.git"
+            "git": "https://github.com/feihong/shu.git",
+            "ref": "1.0"
         }
     },
     "develop": {}

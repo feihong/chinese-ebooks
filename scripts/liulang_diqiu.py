@@ -6,4 +6,4 @@ make_ebook(
     title='流浪地球',
     author='刘慈欣',
     output_file='books/liulang diqiu',
-    formats=['.mobi'])
+    formats=['.md', '.mobi'])

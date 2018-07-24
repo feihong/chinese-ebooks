@@ -7,7 +7,7 @@ name = "pypi"
 
 [packages]
 
-shu = {git = "https://github.com/feihong/shu.git"}
+shu = {git = "https://github.com/feihong/shu.git", ref="1.0"}
 "markdown2" = "*"
 invoke = "*"
 
