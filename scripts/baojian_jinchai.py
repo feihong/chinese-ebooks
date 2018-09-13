@@ -7,4 +7,4 @@ make_ebook(
     author='王度庐',
     index_table_selector='table[cellpadding="7"]',
     output_file='books/baojian jinchai',
-    formats=['.md', '.mobi'])
+    formats=['.md', '.mobi', '.epub'])
