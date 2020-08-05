@@ -21,7 +21,7 @@ def make(index_url, number, index_table_selector):
         title=f'明朝那些事儿{number}',
         author='当年明月',
         output_file=output_file,
-        formats=['.txt', '.md', '.mobi'],
+        formats=['.md', '.mobi'],
         index_table_selector=index_table_selector,
     )
 

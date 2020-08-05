@@ -5,7 +5,7 @@ Scripts for generating some Chinese ebooks
 ## Installation
 
 ```
-mkvirtualenv -p python3 ebook
+pipenv shell
 pipenv install
 ```
 
@@ -20,7 +20,7 @@ ln -s /Applications/calibre.app/Contents/console.app/Contents/MacOS/ebook-conver
 ## Running
 
 ```
-workon ebook
+pipenv shell
 python scripts/mingchao_na_xie_shi.py
 ```
 

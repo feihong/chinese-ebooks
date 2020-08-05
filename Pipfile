@@ -1,16 +1,12 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 shu = {git = "https://github.com/feihong/shu.git", ref="1.0"}
 "markdown2" = "*"
 invoke = "*"
-
-
+requests = "*"
 
 [dev-packages]
