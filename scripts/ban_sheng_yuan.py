@@ -23,7 +23,7 @@ class MyScraper(KanunuScraper):
 index_url='https://www.kanunu8.com/book2/11011/index.html'
 title='半生缘'
 author='张爱玲'
-output_file='books/banshengyuan'
+output_file='books/ban_sheng_yuan'
 formats=['.md', '.mobi']
 
 scraper = MyScraper(index_url=index_url, title=title, author=author)
