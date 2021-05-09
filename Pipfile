@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-shu = {git = "https://github.com/feihong/shu.git", ref="1.0"}
+shu = {git = "https://github.com/feihong/shu.git", ref="1.0.1"}
 "markdown2" = "*"
 invoke = "*"
 requests = "*"
