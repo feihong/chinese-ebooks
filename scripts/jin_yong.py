@@ -20,5 +20,6 @@ for url, title, output_file in BOOKS:
         index_url=url,
         title=title,
         author='金庸',
+        formats=['.mobi', '.epub'],
         output_file=f'books/{output_file}'
     )
