@@ -2,9 +2,10 @@ import requests
 import util
 
 with util.connect() as conn:
-  for (url, num) in conn.execute('SELECT * FROM links ORDER BY num'):
-    print(f'{num} {url}')
+  for i, url in enumerate(util.links, 1):
+    print(f'{i} {url}')
     cur = conn.execute('SELECT url FROM dump WHERE url = ?', (url,))
     if cur.fetchone() is None:
-      r = requests.get(url)
-      conn.execute('INSERT INTO dump VALUES (?, ?)', (url, r.content))
+      # Have to use requests.get because urllib.request.urlopen results in 403 from server
+      res = requests.get(url)
+      conn.execute('INSERT INTO dump VALUES (?, ?)', (url, res.content))

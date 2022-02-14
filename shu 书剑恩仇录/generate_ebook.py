@@ -10,7 +10,9 @@ ORDER BY links.num'''
 
 def get_content():
   with util.connect() as conn:
-    for (url, data) in conn.execute(query):
+    cur = conn.cursor()
+    for url in util.links:
+      _, data = cur.execute('SELECT * FROM dump WHERE url = ?', (url,)).fetchone()
       result = chardet.detect(data)
       text = data.decode(result['encoding'], errors='replace')
       doc = PyQuery(text)
@@ -18,6 +20,7 @@ def get_content():
       content = doc('p').text()
       yield url, title, content
 
+# Generate markdown file
 with util.markdown_file.open('w') as fp:
   for url, title, content in get_content():
     char_count = sum(1 for c in content if not c.isspace())
@@ -27,6 +30,7 @@ with util.markdown_file.open('w') as fp:
     fp.write(f'Characters: {char_count}\n\n')
     fp.write(f'{content}\n\n')
 
+# Generate epub file
 cmd = [
   'ebook-convert',
   util.markdown_file,
