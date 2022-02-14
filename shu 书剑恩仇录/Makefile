@@ -5,7 +5,7 @@ links:
 	python get_links.py
 
 content:
-  python download_content.py
+	python download_content.py
 
-generate:
-  python generate_ebook.py
+ebook:
+	python generate_ebook.py
