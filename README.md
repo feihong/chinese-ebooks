@@ -2,15 +2,17 @@
 
 Scripts for generating some Chinese ebooks
 
+## Prerequisites
+
+    curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+    # Update ~/.profile and ~/.bashrc according to instructions, then logout and login
+
+    apt-get install calibre
+
 ## Installation
 
-    pipenv install
+    make install
 
-To generate MOBI, ePub, or other non-plain-text ebooks, you must install [Calibre](https://calibre-ebook.com/).
-
-Calibre's `ebook-convert` command must be on your path.
-
-    ln -s /Applications/calibre.app/Contents/console.app/Contents/MacOS/ebook-convert /usr/local/bin/ebook-convert
 
 ## Commands
 
