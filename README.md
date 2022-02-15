@@ -13,7 +13,6 @@ Scripts for generating some Chinese ebooks
 
     make install
 
-
 ## Commands
 
 Create ebook from script
@@ -23,3 +22,7 @@ Create ebook from script
 ## References
 
 [ebook-convert documentation](https://manual.calibre-ebook.com/generated/en/ebook-convert.html)
+
+## Notes
+
+The hanzi list comes from http://crr.ugent.be/programs-data/subtitle-frequencies/subtlex-ch
