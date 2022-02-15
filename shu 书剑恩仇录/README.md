@@ -1,6 +1,4 @@
-Index page: https://www.kanunu8.com/book/4600/index.html
-
-Run this script in console to get all content links:
+Visit the index page (see `util.py`) and run this script in console to get all content links:
 
 ```
 links = []
@@ -14,10 +12,11 @@ document.querySelectorAll('a').forEach(anchor => {
     links.push(href)
   }
 })
+console.log(`Found ${links.length} links:`)
 console.log(links.join('\n'))
 ```
 
-What it does: Only grabs the links that like https://www.kanunu8.com/book/4600/61044.html, e.g. end with
+What it does: Only grabs the links that look like https://www.kanunu8.com/book/4600/61044.html, e.g. end with
 `(number).html` and have a common path with the index page.
 
 Paste the links into `util.py`
