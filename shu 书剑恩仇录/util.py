@@ -50,7 +50,7 @@ https://www.kanunu8.com/book/4600/61053.html
 https://www.kanunu8.com/book/4600/61054.html
 '''.strip().splitlines()
 
-markdown_file = here / 'temp.md'
+markdown_file = (here / title).with_suffix('.markdown')
 epub_file = (here / title).with_suffix('.epub')
 
 db_file = here / 'dump.db'
