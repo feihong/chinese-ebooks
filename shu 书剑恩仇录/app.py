@@ -11,7 +11,7 @@ def get_db():
   return db
 
 @app.teardown_appcontext
-def close_connection(exception):
+def close_connection(_exception):
   db = getattr(g, '_database', None)
   if db is not None:
     db.close()
@@ -33,14 +33,13 @@ index_tmpl = jinja2.Template("""
 
 @app.route("/")
 def index():
-  def gen():
-    for (url,) in get_db().execute('SELECT url FROM dump'):
-      yield url
-  return index_tmpl.render(urls=gen())
+  urls = (url for (url,) in get_db().execute('SELECT url FROM dump'))
+  return index_tmpl.render(urls=urls)
 
 @app.route("/row")
 def row():
-  data, = get_db().execute('SELECT data FROM dump WHERE url = ?', (request.args['url'],)).fetchone()
+  url = request.args['url']
+  data, = get_db().execute('SELECT data FROM dump WHERE url = ?', (url,)).fetchone()
   response = make_response(data)
   response.headers.set('Content-Type', 'text/html')
   return response
