@@ -13,8 +13,7 @@ def get_content():
     cur = conn.cursor()
     for url in util.links:
       _, data = cur.execute('SELECT * FROM dump WHERE url = ?', (url,)).fetchone()
-      result = chardet.detect(data)
-      text = data.decode(result['encoding'], errors='replace')
+      text = data.decode(util.encoding)
       doc = PyQuery(text)
       title = doc('strong font').text()
       content = doc('p').text()
