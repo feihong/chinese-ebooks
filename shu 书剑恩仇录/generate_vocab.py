@@ -1,3 +1,4 @@
+import collections
 import jieba
 import util
 import generate_ebook as ebook
@@ -23,6 +24,7 @@ def get_unknown_words(text):
 
     unknown_count = sum(map(lambda c: c not in known, word))
     if unknown_count > 0:
+      unknown_words[word] += 1  # update global unknown_words counter
       yield word
 
 def get_chapter_word_lists():
@@ -30,13 +32,18 @@ def get_chapter_word_lists():
     text = title + '\n\n' + content
     yield title, set(get_unknown_words(text))
 
+unknown_words = collections.Counter()
 known = get_known_hanzi()
 ignore = set(util.ignore_file.read_text())
 print(f'You know {len(known)} hanzi')
-print(ignore)
+
+chapter_word_lists = list(get_chapter_word_lists())
 
 with util.vocab_file.open('w') as fp:
-  for title, words in get_chapter_word_lists():
+  for title, words in chapter_word_lists:
     fp.write(f'\n## {title}\n\n')
-    for word in words:
-      fp.write(f'{word}\n')
+
+    words = list((w, unknown_words[w]) for w in words)
+    words.sort(key=lambda pair: pair[1], reverse=True)
+    for word, occurrences in words:
+      fp.write(f'{word}  {occurrences}\n')
