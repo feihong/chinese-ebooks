@@ -4,8 +4,6 @@ import util
 import generate_ebook as ebook
 
 
-def segment(text): return
-
 def get_known_hanzi():
   known = set()
   with util.hanzi_file.open('r') as fp:
@@ -22,7 +20,7 @@ def get_unknown_words(text):
     if word in ignore:
       continue
 
-    unknown_count = sum(map(lambda c: c not in known, word))
+    unknown_count = sum(map(lambda c: c not in known_hanzi, word))
     if unknown_count > 0:
       unknown_words[word] += 1  # update global unknown_words counter
       yield word
@@ -33,10 +31,9 @@ def get_chapter_word_lists():
     yield title, set(get_unknown_words(text))
 
 unknown_words = collections.Counter()
-known = get_known_hanzi()
+known_hanzi = get_known_hanzi()
 ignore = set(util.ignore_file.read_text())
-print(f'You know {len(known)} hanzi')
-
+print(f'You know {len(known_hanzi)} hanzi')
 chapter_word_lists = list(get_chapter_word_lists())
 
 with util.vocab_file.open('w') as fp:
