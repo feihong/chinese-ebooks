@@ -1,4 +1,5 @@
 flask
+jieba
 jinja2
 pyquery
 requests
