@@ -1,8 +1,11 @@
 download:
 	python download_content.py
 
-ebook:
+book:
 	python generate_ebook.py
+
+vocab:
+	python generate_vocab.py
 
 serve:
 	flask run

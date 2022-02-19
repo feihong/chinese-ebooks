@@ -56,6 +56,10 @@ epub_file = (here / title).with_suffix('.epub')
 
 db_file = here / 'dump.db'
 
+hanzi_file = here.parent / 'hanzi.txt'
+ignore_file = here.parent / 'ignore.txt'
+vocab_file = here / (title + '生词.txt')
+
 def connect():
   return sqlite3.connect(db_file)
 

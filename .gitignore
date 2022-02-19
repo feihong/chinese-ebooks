@@ -2,8 +2,5 @@
 __pycache__/
 
 # Output
-books/*.mobi
-books/*.epub
-books/*.txt
-books/*.md
-*.html
+*.markdown
+*.epub

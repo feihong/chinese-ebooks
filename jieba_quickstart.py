@@ -24,4 +24,6 @@ text = """清乾隆十八年六月，陕西扶风延绥镇总兵衙门内院，�
 
 陆高止待李沅芷走后，挣扎着取出刀伤药敷上左肩，用布缠好，不想这一费劲，眼前一黑，竟“哇”地吐了一大口血。"""
 
-print("; ".join(jieba.cut(text, cut_all=True)))
+segments = (s for s in jieba.cut(text) if s.strip())
+
+print("; ".join(segments))
