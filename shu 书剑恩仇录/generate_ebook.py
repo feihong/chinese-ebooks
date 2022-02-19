@@ -1,12 +1,7 @@
 import subprocess
-import chardet
 from pyquery import PyQuery
 import util
 
-query = '''
-SELECT dump.url, dump.data
-FROM dump JOIN links ON dump.url = links.url
-ORDER BY links.num'''
 
 def get_content():
   with util.connect() as conn:
