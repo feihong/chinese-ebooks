@@ -16,21 +16,6 @@ def close_connection(_exception):
   if db is not None:
     db.close()
 
-index_tmpl = jinja2.Template("""
-<!doctype html>
-<html lang="en">
-<body>
-  <ol>
-    {%for url in urls %}
-      <li>
-        <a href="/row?url={{ url }}"> {{ url }} </a>
-      </li>
-    {% endfor %}
-  </ol>
-</body>
-</html>
-""")
-
 @app.route("/")
 def index():
   urls = (url for (url,) in get_db().execute('SELECT url FROM dump'))
@@ -43,3 +28,45 @@ def row():
   response = make_response(data)
   response.headers.set('Content-Type', 'text/html')
   return response
+
+@app.route("/pretty")
+def pretty():
+  url = request.args['url']
+  data, = get_db().execute('SELECT data FROM dump WHERE url = ?', (url,)).fetchone()
+  title, content = util.parse_page(data)
+  paragraphs = (p for p in content.split('\n') if p.strip())
+  return pretty_tmpl.render(title=title, paragraphs=paragraphs)
+
+index_tmpl = jinja2.Template("""
+<!doctype html>
+<html lang="en">
+<body>
+  <ol>
+    {%for url in urls %}
+      <li>
+        <a href="/row?url={{ url }}"> {{ url }} </a>
+        (<a href="/pretty?url={{ url }}">pretty</a>)
+      </li>
+    {% endfor %}
+  </ol>
+</body>
+</html>
+""")
+
+pretty_tmpl = jinja2.Template("""
+<!doctype html>
+<html lang="en">
+<head>
+  <style>
+  body { font-size: 14pt; }
+  span { font-size: 10pt; color: #999; }
+  </style>
+</head>
+<body>
+  <b>{{ title }}</b>
+  {% for para in paragraphs %}
+    <p><span>{{ loop.index }}</span> {{ para }}</p>
+  {% endfor %}
+</body>
+</html>
+""")

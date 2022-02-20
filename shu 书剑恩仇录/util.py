@@ -1,5 +1,6 @@
 import sqlite3
 from pathlib import Path
+import pyquery
 
 here = Path(__file__).parent
 
@@ -62,6 +63,13 @@ vocab_file = here / (title + ' 生词.txt')
 
 def connect():
   return sqlite3.connect(db_file)
+
+def parse_page(data: bytes):
+  text = data.decode(encoding)
+  doc = pyquery.PyQuery(text)
+  title = doc('strong font').text()
+  content = doc('p').text()
+  return (title, content)
 
 if not db_file.exists():
   with connect() as conn:

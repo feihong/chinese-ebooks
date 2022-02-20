@@ -1,7 +1,7 @@
 import collections
 import jieba
 import util
-import generate_ebook as ebook
+import generate_ebook
 
 
 def get_known_hanzi():
@@ -26,7 +26,7 @@ def get_unknown_words(text):
       yield word
 
 def get_chapter_word_lists():
-  for _url, title, content in ebook.get_chapters():
+  for _url, title, content in generate_ebook.get_chapters():
     text = title + '\n\n' + content
     yield title, set(get_unknown_words(text))
 
