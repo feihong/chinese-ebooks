@@ -1,4 +1,7 @@
-Visit the index page (see `util.py`) and run this script in console to get all content links:
+## Get content page links
+
+You need to grab the content links for the book, and this can be achieved by running a simple script in the browser.
+Visit the index page (see `util.py`), open the dev console, and run the following code:
 
 ```
 links = []
@@ -16,7 +19,25 @@ console.log(`Found ${links.length} links:`)
 console.log(links.join('\n'))
 ```
 
-What it does: Only grabs the links that look like https://www.kanunu8.com/book/4600/61044.html, e.g. end with
+What it does: it prints out the links that look like https://www.kanunu8.com/book/4600/61044.html, i.e. end with
 `(number).html` and have a common path with the index page.
 
-Paste the links into `util.py`
+Paste the links into `util.py`, inside the `link` multiline string.
+
+# Commands
+
+Download content pages
+
+    make download
+
+Generate ebook
+
+    make book
+
+Generate vocabulary document
+
+    make vocab
+
+Start web app on http://localhost:5000 to browse downloaded pages by URL
+
+    make serve

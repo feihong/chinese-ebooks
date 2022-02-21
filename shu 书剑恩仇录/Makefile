@@ -11,4 +11,4 @@ serve:
 	flask run
 
 clean:
-	rm temp.md; rm *.epub
+	rm *.markdown; rm *.epub; rm *.txt

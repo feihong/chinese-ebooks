@@ -1,3 +1,6 @@
+"""
+Download all content pages and store them in the database
+"""
 import requests
 import util
 

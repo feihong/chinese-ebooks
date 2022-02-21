@@ -1,6 +1,6 @@
 # Chinese eBooks
 
-Scripts for generating some Chinese ebooks
+Some examples of how to generate Chinese ebooks
 
 ## Prerequisites
 
@@ -11,18 +11,16 @@ Scripts for generating some Chinese ebooks
 
 ## Installation
 
+Install Python dependencies
+
     make install
 
-## Commands
-
-Create ebook from script
-
-    pipenv run python scripts/mingchao_na_xie_shi.py
-
-## References
+## Links
 
 [ebook-convert documentation](https://manual.calibre-ebook.com/generated/en/ebook-convert.html)
 
 ## Notes
 
-The hanzi list comes from http://crr.ugent.be/programs-data/subtitle-frequencies/subtlex-ch
+The hanzi list comes from http://crr.ugent.be/programs-data/subtitle-frequencies/subtlex-ch.
+
+The `chardet` package isn't very good at detecting GBK-encoded text, it tends to confuse it with GB2312.

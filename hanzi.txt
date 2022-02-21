@@ -1,3 +1,4 @@
+# Any hanzi that has an example next to it is considered to be known
 我 自我
 的 打的
 你 迷你

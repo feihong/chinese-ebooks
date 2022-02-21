@@ -1,3 +1,6 @@
+"""
+A simple web app that can be used to browse the content pages you downloaded.
+"""
 from flask import Flask, g, request, make_response
 import jinja2
 import util
