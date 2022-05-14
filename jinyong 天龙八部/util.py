@@ -79,9 +79,9 @@ def connect():
   return sqlite3.connect(db_file)
 
 def parse_page(data: bytes):
-  text = data.decode(encoding)
+  text = data.decode(encoding, errors='replace')
   doc = pyquery.PyQuery(text)
-  title = doc('strong font').text()
+  title = doc('h2 font').text()
   content = doc('p').text()
   return (title, content)
 
