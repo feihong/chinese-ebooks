@@ -1,9 +1,12 @@
+金庸作品集: https://www.kanunu8.com/files/writer/188.html
+
 ## Get content page links
 
 You need to grab the content links for the book, and this can be achieved by running a simple script in the browser.
 Visit the index page (see `util.py`), open the dev console, and run the following code:
 
 ```
+prefix = 'https://www.kanunu8.com/wuxia/201102/1626/'
 links = []
 document.querySelectorAll('a').forEach(anchor => {
   let href = anchor.href
@@ -11,7 +14,7 @@ document.querySelectorAll('a').forEach(anchor => {
   if (match === null) {
     return
   }
-  if (location.href.startsWith(match[1])) {
+  if (href.startsWith(prefix)) {
     links.push(href)
   }
 })
