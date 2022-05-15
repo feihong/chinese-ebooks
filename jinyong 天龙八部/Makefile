@@ -1,14 +1,14 @@
 download:
-	python download_content.py
+	PYTHONPATH=. python ../download_content.py
 
 book:
-	python generate_ebook.py
+	PYTHONPATH=. python ../generate_ebook.py
 
 vocab:
-	python generate_vocab.py
+	PYTHONPATH=. python ../generate_vocab.py
 
 serve:
-	flask run
+	PYTHONPATH=. FLASK_APP=../app.py flask run
 
 clean:
 	rm *.markdown; rm *.epub; rm *.txt
