@@ -130,7 +130,8 @@ def parse_page(data: bytes):
   doc = pyquery.PyQuery(text)
   paras = doc('td[width="87%"] p')
   title = paras[2].text_content()
-  content = paras[4].text_content()
+  lines = paras[4].text_content().splitlines()
+  content = '\n\n'.join(lines)
   return (title, content)
 
 if not db_file.exists():
