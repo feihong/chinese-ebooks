@@ -128,7 +128,6 @@ def connect():
 def parse_page(data: bytes):
   text = data.decode(encoding)
   doc = pyquery.PyQuery(text)
-  # import pdb; pdb.set_trace()
   paras = doc('td[width="87%"] p')
   title = paras[2].text_content()
   content = paras[4].text_content()
