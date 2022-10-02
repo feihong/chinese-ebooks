@@ -1,4 +1,5 @@
-金庸作品集: https://www.kanunu8.com/files/writer/188.html
+Source: https://github.com/hankinghu/literature-books/blob/master/天龙八部.txt
+
 
 ## Get content page links
 
@@ -28,10 +29,6 @@ What it does: it prints out the links that look like https://www.kanunu8.com/boo
 Paste the links into `util.py`, inside the `link` multiline string.
 
 # Commands
-
-Download content pages
-
-    make download
 
 Generate ebook
 

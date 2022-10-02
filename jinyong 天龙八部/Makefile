@@ -1,8 +1,8 @@
-download:
-	PYTHONPATH=. python ../download_content.py
-
 book:
 	PYTHONPATH=. python ../generate_ebook.py
+
+markdown:
+	python generate_markdown.py
 
 vocab:
 	PYTHONPATH=. python ../generate_vocab.py
