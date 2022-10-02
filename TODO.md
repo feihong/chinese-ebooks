@@ -3,4 +3,4 @@
 - [x] Add personal hanzi list
 - [x] Extract word list for each chapter
 - [x] Generate personal word list for each chapter
-- [ ] Generate tiny paragraph numbers inside the markdown
+- [x] Generate tiny paragraph numbers inside the markdown

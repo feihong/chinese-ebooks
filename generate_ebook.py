@@ -32,7 +32,7 @@ def generate_markdown_file():
       paras = re.split(r'\n+', content)
       # Add a number in front of each paragraph
       for i in range(len(paras)):
-        paras[i] = f'{i+1} {paras[i]}'
+        paras[i] = f'<span style="font-size:x-small;color:#888">{i+1}</span> {paras[i]}'
       content = '\n\n'.join(paras)
       fp.write(f'{content}\n\n')
 
