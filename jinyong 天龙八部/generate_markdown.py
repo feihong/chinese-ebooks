@@ -33,12 +33,24 @@ def get_sections(lines):
       section = Section(line)
     else:
       if section is not None:
-        section.append(lines)
+        section.append(line)
 
   if section is not None:
     yield section
 
-lines = get_lines()
-sections = [section for section in get_sections(lines) if len(section.body) > 1]
-for i, section in enumerate(sections, 1):
-  print(i, section.title, len(section.body))
+
+def main():
+  lines = get_lines()
+  # Ignore sections that contain no content
+  sections = [section for section in get_sections(lines) if len(section.body) > 1]
+
+  with util.markdown_file.open('w') as fp:
+    for section_num, section in enumerate(sections, 1):
+      print(section_num, section.title, len(section.body))
+
+      fp.write(f'## {section.title}\n\n')
+      for i, line in enumerate(section.body, 1):
+        fp.write(f'<span style="font-size:x-small;color:#888">{i}</span> {line}\n\n')
+
+if __name__ == '__main__':
+  main()

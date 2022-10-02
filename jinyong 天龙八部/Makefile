@@ -1,5 +1,7 @@
-book:
-	PYTHONPATH=. python ../generate_ebook.py
+book: markdown epub
+
+epub:
+	PYTHONPATH=. python ../generate_epub.py
 
 markdown:
 	python generate_markdown.py
