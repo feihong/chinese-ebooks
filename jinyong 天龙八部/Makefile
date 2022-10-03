@@ -1,16 +1,11 @@
-book: markdown epub
+json:
+	python generate_json.py
 
 epub:
-	PYTHONPATH=. python ../generate_epub.py
-
-markdown:
-	python generate_markdown.py
+	python generate_epubs.py
 
 vocab:
 	PYTHONPATH=. python ../generate_vocab.py
 
-serve:
-	PYTHONPATH=. FLASK_APP=../app.py flask run
-
 clean:
-	rm *.markdown; rm *.epub; rm *.txt
+	rm output/*.md; rm output/*.epub; rm *.json
