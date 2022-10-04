@@ -14,16 +14,13 @@ def generate_epub(markdown_file: Path, title, author, description):
   ]
   subprocess.run(cmd)
 
-def generate_markdown_file(chapter, title):
-  markdown_file = (util.output_dir / title).with_suffix('.md')
+def generate_markdown_file(markdown_file, chapter, title):
   with markdown_file.open('w') as fp:
     lines = chapter['body'].splitlines()
 
     fp.write(f'# {title}\n\n')
     for i, line in enumerate(lines, 1):
       fp.write(f'<span style="font-size:x-small;color:#888">{i}</span> {line}\n\n')
-
-  return markdown_file
 
 
 with util.json_file.open() as fp:
@@ -33,6 +30,8 @@ with util.json_file.open() as fp:
     title = util.title + ' ' + chapter['title']
     print(chapter_num, title)
 
-    markdown_file = generate_markdown_file(chapter, title)
+    markdown_file = (util.output_dir / title).with_suffix('.md')
+
+    generate_markdown_file(markdown_file, chapter, title)
 
     generate_epub(markdown_file, title=title, author=util.author, description=util.description)

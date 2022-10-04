@@ -15,3 +15,6 @@ input_file = Path(title).with_suffix('.txt')
 json_file = input_file.with_suffix('.json')
 
 output_dir = here / 'output'
+
+hanzi_file = here.parent / 'hanzi.txt'
+ignore_file = here.parent / 'ignore.txt'

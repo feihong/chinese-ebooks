@@ -5,7 +5,7 @@ epub:
 	python generate_epubs.py
 
 vocab:
-	PYTHONPATH=. python ../generate_vocab.py
+	PYTHONPATH=. python ../generate_vocab_epubs.py
 
 clean:
 	rm output/*.md; rm output/*.epub; rm *.json
