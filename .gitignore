@@ -3,6 +3,3 @@ __pycache__/
 
 # Output
 dump.db
-*.txt
-*.markdown
-*.epub

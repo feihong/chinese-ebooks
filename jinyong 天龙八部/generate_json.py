@@ -1,11 +1,12 @@
+"""
+Parse plain text file and output the book's contents as JSON
+"""
 import re
 import json
 import subprocess
 from pathlib import Path
 import util
 
-# Print the encoding
-subprocess.run(['chardetect', util.input_file])
 
 class Chapter:
   def __init__(self, title):
@@ -42,6 +43,9 @@ def get_chapters(lines):
 
 
 def main():
+  # Print the encoding
+  subprocess.run(['chardetect', util.input_file])
+
   lines = get_lines()
   # Ignore chapters that contain no content
   chapters = [chapter for chapter in get_chapters(lines) if len(chapter.body) > 1]

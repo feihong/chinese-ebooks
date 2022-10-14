@@ -1,7 +1,11 @@
+"""
+Generate a markdown file for each chapter, then convert each markdown file to epub
+"""
 from pathlib import Path
 import json
 import subprocess
 import util
+
 
 def generate_epub(markdown_file: Path, title, author, description):
   cmd = [
