@@ -4,6 +4,9 @@ json:
 epub:
 	python generate_epubs.py
 
+html:
+	python generate_html.py
+
 vocab:
 	PYTHONPATH=. python ../generate_vocab_epubs.py
 
