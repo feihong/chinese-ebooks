@@ -3,3 +3,4 @@ __pycache__/
 
 # Output
 dump.db
+*.html
