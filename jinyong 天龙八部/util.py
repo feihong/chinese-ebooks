@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 
@@ -13,15 +14,30 @@ description = '小说以宋哲宗时代为背景，通过宋、辽、大理、�
 input_file = Path(title).with_suffix('.txt')
 
 json_file = input_file.with_suffix('.json')
-
+highlights_file = here / 'highlights.txt'
 output_dir = here / 'output'
 
 hanzi_file = here.parent / 'hanzi.txt'
 ignore_file = here.parent / 'ignore.txt'
-highlights_file = here.parent / 'highlights.txt'
 
 def get_chapters():
   with json_file.open() as fp:
     chapters = json.load(fp)
   return chapters
 
+def get_current_chapter_title():
+  chapter = None
+
+  with highlights_file.open() as fp:
+    for line in fp:
+      line = line.strip()
+      if line and not re.match(r'[\d ]+', line):
+        chapter = line
+
+  return chapter
+
+def get_current_chapter():
+  title = get_current_chapter_title()
+  for chapter in get_chapters():
+    if chapter['title'] == title:
+      return chapter

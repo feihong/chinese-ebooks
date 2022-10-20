@@ -32,7 +32,7 @@ with a.html(lang="en"):
     for i, line in enumerate(lines, 1):
       with a.p():
         if i in pages:
-          style = 'color:#eee;background-color:#900;padding:0 3px'
+          style = 'color:#eee;background-color:#900'
         else:
           style = 'color:#888'
 

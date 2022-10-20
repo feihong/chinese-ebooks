@@ -5,7 +5,7 @@ chapters:
 	python print_chapters.py
 
 epub:
-	python generate_epubs.py
+	python generate_epub.py
 
 html:
 	python generate_html.py

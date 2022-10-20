@@ -2,10 +2,8 @@
 Generate a markdown file for each chapter, then convert each markdown file to epub
 """
 from pathlib import Path
-import json
 import subprocess
 import util
-
 
 def generate_epub(markdown_file: Path, title, author, description):
   cmd = [
@@ -27,15 +25,11 @@ def generate_markdown_file(markdown_file, chapter, title):
       fp.write(f'<span style="font-size:x-small;color:#888">{i}</span> {line}\n\n')
 
 
-with util.json_file.open() as fp:
-  chapters = json.load(fp)
+chapter = util.get_current_chapter()
+title = util.title + ' ' + chapter['title']
 
-  for chapter_num, chapter in enumerate(chapters, 1):
-    title = util.title + ' ' + chapter['title']
-    print(chapter_num, title)
+markdown_file = (util.output_dir / title).with_suffix('.md')
 
-    markdown_file = (util.output_dir / title).with_suffix('.md')
+generate_markdown_file(markdown_file, chapter, title)
 
-    generate_markdown_file(markdown_file, chapter, title)
-
-    generate_epub(markdown_file, title=title, author=util.author, description=util.description)
+generate_epub(markdown_file, title=title, author=util.author, description=util.description)
