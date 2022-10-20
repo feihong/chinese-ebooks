@@ -48,8 +48,6 @@ def main():
   lines = get_lines()
   # Ignore chapters that contain no content
   chapters = [chapter for chapter in get_chapters(lines) if len(chapter.body) > 1]
-  for chapter in chapters:
-    print(chapter.title)
 
   with util.json_file.open('w') as fp:
     obj = [dict(title=c.title, body='\n'.join(c.body)) for c in chapters]

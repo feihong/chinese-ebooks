@@ -1,6 +1,9 @@
 json:
 	python generate_json.py
 
+chapters:
+	python print_chapters.py
+
 epub:
 	python generate_epubs.py
 

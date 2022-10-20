@@ -1,6 +1,6 @@
-import sqlite3
+import json
 from pathlib import Path
-import pyquery
+
 
 here = Path(__file__).parent
 
@@ -19,3 +19,9 @@ output_dir = here / 'output'
 hanzi_file = here.parent / 'hanzi.txt'
 ignore_file = here.parent / 'ignore.txt'
 highlights_file = here.parent / 'highlights.txt'
+
+def get_chapters():
+  with json_file.open() as fp:
+    chapters = json.load(fp)
+  return chapters
+
