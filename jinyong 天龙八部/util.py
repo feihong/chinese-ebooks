@@ -18,3 +18,4 @@ output_dir = here / 'output'
 
 hanzi_file = here.parent / 'hanzi.txt'
 ignore_file = here.parent / 'ignore.txt'
+highlights_file = here.parent / 'highlights.txt'

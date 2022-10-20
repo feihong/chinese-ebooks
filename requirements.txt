@@ -1,4 +1,5 @@
 airium
+chardet
 flask
 jieba
 jinja2
