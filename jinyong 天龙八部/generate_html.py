@@ -3,13 +3,8 @@ from pathlib import Path
 from airium import Airium
 import util
 
-title = '一 青衫磊落险峰行'
-pages = '1 4 8 9 10 11 14 19 23 34 36 45 51 52 56 57 64 65 68 70 72 73 75 76 79 83 84 85 88 90 91 96 107 108 113 118 123 126 129 134 145 146 148 150 151 152 160 171 178 181 182 185 188 194 195 201 206 207 209 210'
-pages = [int(p) for p in pages.split()]
-
-chapters = json.loads(util.json_file.read_bytes())
-
-chapter = next(c for c in chapters if c['title'] == title)
+title, pages = util.get_highlight()
+chapter = util.get_current_chapter()
 
 lines = chapter['body'].splitlines()
 
@@ -39,5 +34,5 @@ with a.html(lang="en"):
         a.span(style=style, _t=i)
         a(line)
 
-html_file = Path(title).with_suffix('.html')
+html_file = (util.output_dir / title).with_suffix('.html')
 html_file.write_bytes(bytes(a))

@@ -25,19 +25,25 @@ def get_chapters():
     chapters = json.load(fp)
   return chapters
 
-def get_current_chapter_title():
-  chapter = None
+def get_highlight():
+  title = None
+  pages = None
 
   with highlights_file.open() as fp:
     for line in fp:
       line = line.strip()
-      if line and not re.match(r'[\d ]+', line):
-        chapter = line
+      if line == '':
+        continue
+      elif re.match(r'[\d ]+', line):
+        pages = [int(p) for p in line.split()]
+      else:
+        title = line
+        pages = None
 
-  return chapter
+  return title, pages
 
 def get_current_chapter():
-  title = get_current_chapter_title()
+  title, _pages = get_highlight()
   for chapter in get_chapters():
     if chapter['title'] == title:
       return chapter
