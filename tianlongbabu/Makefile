@@ -4,6 +4,9 @@ json:
 chapters:
 	python print_chapters.py
 
+site:
+	python generate_site.py
+
 epub:
 	python generate_epub.py
 
