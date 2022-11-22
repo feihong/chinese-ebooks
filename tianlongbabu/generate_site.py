@@ -1,5 +1,4 @@
-import json
-from pathlib import Path
+
 from airium import Airium
 import util
 
@@ -11,11 +10,15 @@ def generate_page(title, body_callback, output_file):
   with a.html(lang="en"):
     with a.head():
         a.meta(charset="utf-8")
+        a.meta(name="viewport", content="width=device-width, initial-scale=1")
         a.title(_t=title)
+        a.link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic')
+        a.link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css')
+        a.link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css')
         a.style(_t="""
-        body {
-          font-size: 20px;
-        }
+        p { font-size: 2rem; }
+        span { font-size: 1rem; color: #888; }
+        body { padding: 0 1rem; }
         """)
 
     with a.body():
@@ -31,7 +34,7 @@ def generate_chapter(chapter):
     lines = chapter['body'].splitlines()
     for i, line in enumerate(lines, 1):
       with a.p():
-        a.span(style='color:#888;font-size:small', _t=i)
+        a.span(_t=i)
         a(line)
 
   generate_page(
