@@ -1,0 +1,12 @@
+{% extends "site-base.html" %}
+
+{% block content %}
+<ol>
+  {% for line in body_lines %}
+    <p>
+      <span>{{ loop.index }}</span>
+      {{ line }}
+    </p>
+  {% endfor %}
+</ol>
+{% endblock %}
