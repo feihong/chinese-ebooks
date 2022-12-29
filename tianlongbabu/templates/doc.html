@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    {% for line in body_lines %}
+      <p style="font-size: 20px">
+        <span style="font-size: 12px;color:#888">{{ loop.index }}</span>
+        {% for item in line %}
+          {%- if item.highlighted -%}
+            <span style="background-color:#ff0">{{ item }}</span>
+          {%- else -%}
+            {{ item }}
+          {%- endif -%}
+        {% endfor %}
+      </p>
+    {% endfor %}
+  </body>
+</html>

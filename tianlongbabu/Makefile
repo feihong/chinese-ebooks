@@ -10,8 +10,8 @@ site:
 epub:
 	python generate_epub.py
 
-html:
-	python generate_html.py
+doc:
+	python generate_doc.py
 
 vocab:
 	PYTHONPATH=. python ../generate_vocab_epubs.py
