@@ -34,19 +34,25 @@ def get_chapters():
     chapters = json.load(fp)
   return chapters
 
-class Item:
-  def __init__(self, line):
-    match = re.match(r'(\d+) (.+)', line)
-    self.num = int(match.group(1))
-    self.content = match.group(2)
-
-class Highlight:
+class HighlightChapter:
   def __init__(self, block):
     lines = block.splitlines()
     self.title = lines[0]
-    self.items = [Item(l) for l in lines[1:]]
-  
+    self.items = [HiglightLine(l) for l in lines[1:]]
+
+  def __iter__(self):
+    return iter(self.items)
+
+class HiglightLine:
+  """
+  One or more phrases that appear on the given line number
+  """
+  def __init__(self, line):
+    match = re.match(r'(\d+) (.+)', line)
+    self.num = int(match.group(1))
+    self.content = match.group(2).split('；')
+
 
 def get_highlights():
   blocks = re.split(r'\n{2,}', highlights_file.read_text())
-  return [Highlight(block) for block in blocks]
+  return [HighlightChapter(block) for block in blocks]
