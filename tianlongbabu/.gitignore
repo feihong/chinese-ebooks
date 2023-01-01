@@ -1,4 +1,6 @@
 output/*.html
+output/*.epub
+output/*.md
 
 天龙八部.txt
 *.json

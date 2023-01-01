@@ -1,6 +1,9 @@
 """
-Generate a markdown file for each chapter, then convert each markdown file to epub
+Generate epub file for the chapter with the given title.
+
+Works by generating a markdown file for each chapter, then converting that markdown file to epub.
 """
+import sys
 from pathlib import Path
 import subprocess
 import util
@@ -25,7 +28,9 @@ def generate_markdown_file(markdown_file, chapter, title):
       fp.write(f'<span style="font-size:x-small;color:#888">{i}</span> {line}\n\n')
 
 
-chapter = util.get_current_chapter()
+title = sys.argv[1]
+print(f'Looking for chapter with title "{title}"')
+chapter = [c for c in util.get_chapters() if c['title'] == title][0]
 title = util.title + ' ' + chapter['title']
 
 markdown_file = (util.output_dir / title).with_suffix('.md')

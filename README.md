@@ -4,10 +4,13 @@ Some examples of how to generate Chinese ebooks
 
 ## Prerequisites
 
-    curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-    # Update ~/.profile and ~/.bashrc according to instructions, then logout and login
+Python 3.
+
+On Linux, install Calibre by running
 
     apt-get install calibre
+
+On Mac, download Calibre and install from dmg file. Add `/Applications/calibre.app/Contents/MacOS/` to your path to access Calibre's command line tools.
 
 ## Installation
 
