@@ -1,3 +1,7 @@
+# 唐诗百话
+
+http://www.guoxue123.com/new/0002/tsbh/index.htm
+
 ## Get content page links
 
 You need to grab the content links for the book, and this can be achieved by running a simple script in the browser.
@@ -30,10 +34,6 @@ Download content pages
 Generate ebook
 
     make book
-
-Generate vocabulary document
-
-    make vocab
 
 Start web app on http://localhost:5000 to browse downloaded pages by URL
 

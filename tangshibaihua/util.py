@@ -1,14 +1,12 @@
 import sqlite3
 from pathlib import Path
-import pyquery
 
 here = Path(__file__).parent
 
 index_url = 'http://www.guoxue123.com/new/0002/tsbh/index.htm'
-encoding = 'gbk'
 title = '唐诗百话'
 author = '施蜇存'
-description = '《唐诗百话》面世以来，深受海内外学术界高度评价和广大读者热烈赞誉，美国耶鲁大学等名校也将这本书作为汉学研究课程的教材。施蛰存将数十年来对中国古典诗学的潜心探索，以严谨考证和比较文学研究的方法融贯于一书，尤其是毫不因袭前人的选诗、说诗视角和贯通中外古今的大家气度，在唐诗研究上别开生面，极具新意。'
+
 links = '''
 http://www.guoxue123.com/new/0002/tsbh/000.htm
 http://www.guoxue123.com/new/0002/tsbh/001.htm
@@ -113,27 +111,5 @@ http://www.guoxue123.com/new/0002/tsbh/099.htm
 http://www.guoxue123.com/new/0002/tsbh/100.htm
 '''.strip().splitlines()
 
-markdown_file = (here / title).with_suffix('.markdown')
-epub_file = (here / title).with_suffix('.epub')
-
-db_file = here / 'dump.db'
-
-hanzi_file = here.parent / 'hanzi.txt'
-ignore_file = here.parent / 'ignore.txt'
-vocab_file = here / (title + ' 生词.txt')
-
-def connect():
-  return sqlite3.connect(db_file)
-
-def parse_page(data: bytes):
-  text = data.decode(encoding)
-  doc = pyquery.PyQuery(text)
-  paras = doc('td[width="87%"] p')
-  title = paras[2].text_content()
-  lines = paras[4].text_content().splitlines()
-  content = '\n\n'.join(lines)
-  return (title, content)
-
-if not db_file.exists():
-  with connect() as conn:
-    conn.execute("CREATE TABLE dump (url TEXT PRIMARY KEY, data BLOB);")
+json_file = here / 'book.json'
+output_dir = here / 'output'

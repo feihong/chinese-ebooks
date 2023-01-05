@@ -1,2 +1,4 @@
 chardet
 jinja2
+pyqyery
+requests
