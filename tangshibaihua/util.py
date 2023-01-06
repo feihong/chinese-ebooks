@@ -112,4 +112,5 @@ http://www.guoxue123.com/new/0002/tsbh/100.htm
 '''.strip().splitlines()
 
 json_file = here / 'book.json'
+txt_file = here / 'book.txt'
 output_dir = here / 'output'

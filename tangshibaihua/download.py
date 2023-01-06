@@ -20,7 +20,7 @@ def parse_page(data: bytes):
   paras = doc('td[width="87%"] p')
   title = paras[2].text_content()
   lines = (line.strip() for line in paras[4].text_content().splitlines())
-  body = '\n'.join(lines)
+  body = '\n\n'.join(lines)
   return dict(title=title, body=body)
 
 
