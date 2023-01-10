@@ -8,14 +8,13 @@ from pathlib import Path
 import subprocess
 import util
 
-def generate_epub(markdown_file: Path, title, author, description):
+def generate_epub(markdown_file: Path, title, author):
   cmd = [
     'ebook-convert',
     markdown_file,
     markdown_file.with_suffix('.epub'),
     '--authors', author,
     '--title', title,
-    '--comments', description,
   ]
   subprocess.run(cmd)
 
@@ -28,13 +27,18 @@ def generate_markdown_file(markdown_file, chapter, title):
       fp.write(f'<span style="font-size:x-small;color:#888">{i}</span> {line}\n\n')
 
 
-title = sys.argv[1]
-print(f'Looking for chapter with title "{title}"')
-chapter = [c for c in util.get_chapters() if c['title'] == title][0]
+argument = sys.argv[1]
+if argument.isdigit():
+  index = int(argument)
+  chapter = util.get_chapters()[index - 1]
+else:
+  print(f'Looking for chapter with title "{title}"')
+  chapter = [c for c in util.get_chapters() if c['title'] == title][0]
+
 title = util.title + ' ' + chapter['title']
 
 markdown_file = (util.output_dir / title).with_suffix('.md')
 
 generate_markdown_file(markdown_file, chapter, title)
 
-generate_epub(markdown_file, title=title, author=util.author, description=util.description)
+generate_epub(markdown_file, title=title, author=util.author)
