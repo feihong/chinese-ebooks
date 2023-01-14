@@ -1,11 +1,11 @@
 {% extends "site-base.html" %}
 
 {% block content %}
-<ol>
+<ul>
   {% for chapter in chapters %}
     <li>
-      <a href="{{ chapter['title'] }}.html">{{ chapter['title'] }}</a>
+      <a href="{{ chapter['title'] }}.html">{{ chapter['title'] }} ({{ chapter['paragraphs'] | length }})</a>
     </li>
   {% endfor %}
-</ol>
+</ul>
 {% endblock %}

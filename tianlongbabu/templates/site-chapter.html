@@ -1,12 +1,12 @@
 {% extends "site-base.html" %}
 
 {% block content %}
-<ol>
-  {% for line in body_lines %}
+  <p>{{ paragraphs | length }} paragraphs</p>
+
+  {% for para in paragraphs %}
     <p>
       <span>{{ loop.index }}</span>
-      {{ line }}
+      {{ para }}
     </p>
   {% endfor %}
-</ol>
 {% endblock %}

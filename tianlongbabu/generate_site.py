@@ -3,7 +3,7 @@ import util
 
 def generate_chapter(chapter):
   template = util.get_template('site-chapter.html')
-  output = template.render(title=chapter['title'], body_lines=chapter['body'].splitlines())
+  output = template.render(title=chapter['title'], paragraphs=chapter['paragraphs'])
   output_file=(util.output_dir / chapter['title']).with_suffix('.html')
   output_file.write_text(output)
 
@@ -17,6 +17,8 @@ def generate_index(chapters):
 
 if __name__ == '__main__':
   chapters = util.get_chapters()
+  for chapter in chapters:
+    chapter['paragraphs'] = chapter['body'].splitlines()
 
   generate_index(chapters)
 
