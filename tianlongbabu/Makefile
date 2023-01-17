@@ -17,4 +17,4 @@ vocab:
 	PYTHONPATH=. python ../generate_vocab_epubs.py
 
 clean:
-	rm output/*.md; rm output/*.epub; rm *.json
+	rm output/*.md; rm output/*.epub; rm output/*.html
