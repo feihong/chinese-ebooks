@@ -23,13 +23,16 @@ def find_substring(s, ss):
   start = s.find(ss)
   return (start, start + len(ss))
 
-def highlight_line_to_chunks(line, highlights):
+def highlight_line_to_chunks(num, line, highlights):
   while highlights != []:
     highlight = highlights.pop(0)
     start, end = find_substring(line, highlight)
+    if start == -1:
+      print(f'Could not find the highlight "{highlight}" on paragaph {num}')
+      continue
     yield Chunk(line[0:start])
     yield Chunk(line[start:end], highlighted=True)
-    line = line[end:-1]
+    line = line[end:]
 
   if line != '':
     yield Chunk(line)
@@ -39,7 +42,7 @@ def get_paragraphs():
   for num, line in enumerate(body_lines, 1):
     if num in highlight_map:
       highlights = highlight_map[num]
-      yield highlight_line_to_chunks(line, highlights)
+      yield highlight_line_to_chunks(num, line, highlights)
     else:
       yield [Chunk(line)]
 

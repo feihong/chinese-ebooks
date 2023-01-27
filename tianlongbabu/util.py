@@ -44,7 +44,7 @@ class HiglightLine:
   def __init__(self, line):
     match = re.match(r'(\d+) (.+)', line)
     self.num = int(match.group(1))
-    self.content = match.group(2).split('；')
+    self.content = match.group(2).split(' ')
 
 
 def get_highlights():
