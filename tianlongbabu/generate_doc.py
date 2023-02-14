@@ -2,6 +2,7 @@
 Generate HTML for that can be pasted into review document in Google Docs
 """
 from collections import UserString
+import subprocess
 import util
 
 chapters = util.get_chapters()
@@ -50,4 +51,4 @@ title = chapter['title']
 output = util.get_template('doc.html').render(title=title, paragraphs=get_paragraphs())  
 output_file = (util.output_dir / (chapter['title'] + '_doc')).with_suffix('.html')
 output_file.write_text(output)
-
+subprocess.run(['open', output_file])
