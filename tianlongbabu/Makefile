@@ -8,7 +8,7 @@ site:
 	python generate_site.py
 
 epub:
-	python generate_epub.py "${chapter}"
+	python generate_epub.py
 
 doc:
 	python generate_doc.py
