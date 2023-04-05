@@ -3,10 +3,17 @@ Generate HTML for that can be pasted into review document in Google Docs
 """
 from collections import UserString
 import subprocess
+import sys
 import util
 
+try:
+  index = int(sys.argv[1])
+  index = index - 1
+except IndexError:
+  index = -1
+
 chapters = util.get_chapters()
-highlight_chapter = util.get_highlights()[-1]
+highlight_chapter = util.get_highlights()[index]
 chapter = [c for c in chapters if c['title'] == highlight_chapter.title][0]
 
 # Map line numbers to highlight lines

@@ -11,7 +11,7 @@ epub:
 	python generate_epub.py
 
 doc:
-	python generate_doc.py
+	python generate_doc.py ${doc}
 
 vocab:
 	PYTHONPATH=. python ../generate_vocab_epubs.py
