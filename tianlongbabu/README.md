@@ -7,3 +7,7 @@ Source: https://github.com/hankinghu/literature-books/blob/master/天龙八部.t
 Generate HTML document containing latest highlights
 
     make doc
+
+Generate highlights from an exported flashcard file:
+
+    python generate_highlights flashcards.txt
