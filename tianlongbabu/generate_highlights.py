@@ -9,7 +9,8 @@ except IndexError:
   print('You must provide an input file')
 
 def get_highlights():
-  for line in input_file.read_text().splitlines():
+  # use utf-8-sig to remove the BOM from beginning of file
+  for line in input_file.read_text(encoding='utf-8-sig').splitlines():
     if line.startswith('//'):
       continue
 

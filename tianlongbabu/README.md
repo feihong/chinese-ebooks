@@ -4,10 +4,10 @@ Source: https://github.com/hankinghu/literature-books/blob/master/天龙八部.t
 
 ## Commands
 
+Generate highlights from an exported flashcard file:
+
+    python generate_highlights.py flashcards.txt
+
 Generate HTML document containing latest highlights
 
     make doc
-
-Generate highlights from an exported flashcard file:
-
-    python generate_highlights flashcards.txt
