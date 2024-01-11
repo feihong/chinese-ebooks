@@ -38,6 +38,7 @@ def get_highlight_lines(body_lines):
 chapters = util.get_chapters()
 chapter = [c for c in chapters if c['title'] == input_file.stem][0]
 
+print(chapter['title'])
 body_lines = chapter['body'].splitlines()
 for num, highlight in get_highlight_lines(body_lines):
   print(num, highlight)
